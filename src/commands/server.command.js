@@ -1,6 +1,5 @@
 const { Interaction } = require('discord.js');
 const child_process = require('child_process');
-const { escapeMarkdown } = require('../util.js'); 
 
 const meta = {
     name: 'server',
