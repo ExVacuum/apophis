@@ -40,7 +40,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('interactionCreate', async interaction => {
+client.on('interactionCreate', interaction => {
     let command;
     if(command = commands[interaction.commandName]) {
         command.entry_point(interaction);
