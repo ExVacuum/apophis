@@ -14,7 +14,7 @@ async function entry_point(interaction) {
     await interaction.reply(`Server Info:\n\`\`\`ansi\n${
         nf.toString()
         .replace(/[`]/g, "​`")
-        .replace(/(\[\?25[lh]\[\?7[lh])|(\[19A\[9999999D[\n]{20})/g, '')
+        .replace(/(\[\?25[lh]\[\?7[lh])|(\[1[0-9]A\[9999999D[\n]+)/g, '')
     }\n\`\`\``);
 }
 
