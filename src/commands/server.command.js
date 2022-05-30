@@ -1,13 +1,14 @@
 const { Interaction } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const child_process = require('child_process');
 
-const meta = {
-    name: 'server',
-    description: 'Gets server info.'
-}
+const meta = new SlashCommandBuilder()
+    .setName('server')
+    .setDescription('Gets server info')
+    .toJSON();
 
 /**
- * @param {Interaction} interaction
+ * @param {CommandInteraction} interaction
  */
 async function entry_point(interaction) {
     const nf = child_process.spawnSync('neofetch -L && neofetch --off --no_config --color_blocks off', [], { shell: true }).stdout;

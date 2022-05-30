@@ -1,15 +1,16 @@
 const { Interaction } = require('discord.js')
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const meta = {
-    name: 'ping',
-    description: 'Replies with Pong!'
-}
+const meta = new SlashCommandBuilder()
+    .setName('ping')
+    .setDescription('Replies with pong')
+    .toJSON();
 
 /**
- * @param {Interaction} interaction
+ * @param {CommandInteraction} interaction
  */
 async function entry_point(interaction) {
-   await interaction.reply('Pong!');
+    await interaction.reply('Pong!');
 }
 
 module.exports = {

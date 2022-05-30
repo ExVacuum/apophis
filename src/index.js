@@ -21,10 +21,12 @@ const rest = new REST({ version: '9' }).setToken(config.token);
   try {
     console.log('Started refreshing application commands.');
 
-    await rest.put(
-      Routes.applicationGuildCommands(config.appid, config.guildid),
-      { body: Object.values(commands).map(command => command.meta) },
-    );
+    config.guildids.forEach(async guildid => {
+        await rest.put(
+            Routes.applicationGuildCommands(config.appid, guildid),
+            { body: Object.values(commands).map(command => command.meta) },
+        );
+    });
 
     console.log('Successfully refreshed application commands.');
   } catch (error) {
